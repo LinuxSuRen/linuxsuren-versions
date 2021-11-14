@@ -12,7 +12,7 @@ spec:
       name: linuxsuren-versions
       provider: github
     secret: {}
-  phase: draft
+  phase: ready
   repositories:
   - action: release
     address: https://github.com/LinuxSuRen/go-cli-alias
