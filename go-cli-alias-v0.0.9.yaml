@@ -1,8 +1,17 @@
 apiVersion: devops.kubesphere.io/v1alpha1
 kind: Releaser
 metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"devops.kubesphere.io/v1alpha1","kind":"Releaser","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"linuxsuren"},"name":"go-cli-alias-v0.0.9","namespace":"linuxsuren-bot"},"spec":{"gitOps":{"enable":true,"repository":{"address":"https://github.com/LinuxSuRen/linuxsuren-versions","branch":"master","name":"linuxsuren-versions","provider":"github"},"secret":{}},"phase":"ready","repositories":[{"action":"release","address":"https://github.com/LinuxSuRen/go-cli-alias","branch":"master","name":"go-cli-alias","provider":"github"}],"secret":{"name":"linuxsuren-bot","namespace":"ks-releaser-system"},"version":"v0.0.9"},"status":{}}
+    releaser.devops.kubesphere.io/hash: 77889995c7
+  creationTimestamp: "2021-11-14T14:12:09Z"
+  generation: 2
+  labels:
+    app.kubernetes.io/instance: linuxsuren
   name: go-cli-alias-v0.0.9
   namespace: linuxsuren-bot
+  selfLink: /apis/devops.kubesphere.io/v1alpha1/namespaces/linuxsuren-bot/releasers/go-cli-alias-v0.0.9
 spec:
   gitOps:
     enable: true
@@ -11,15 +20,21 @@ spec:
       branch: master
       name: linuxsuren-versions
       provider: github
-  phase: ready
+    secret: {}
+  phase: done
   repositories:
   - action: release
     address: https://github.com/LinuxSuRen/go-cli-alias
     branch: master
     name: go-cli-alias
     provider: github
+    version: v0.0.9
   secret:
     name: linuxsuren-bot
     namespace: ks-releaser-system
   version: v0.0.9
-status: {}
+status:
+  conditions:
+  - conditionType: release
+    message: https://github.com/LinuxSuRen/go-cli-alias was released
+    status: success
