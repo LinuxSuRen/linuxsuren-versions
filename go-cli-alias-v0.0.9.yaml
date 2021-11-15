@@ -34,6 +34,7 @@ spec:
     namespace: ks-releaser-system
   version: v0.0.9
 status:
+  completionTime: "2021-11-14T14:22:57Z"
   conditions:
   - conditionType: release
     message: https://github.com/LinuxSuRen/go-cli-alias was released
