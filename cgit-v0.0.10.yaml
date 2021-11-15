@@ -1,0 +1,26 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  name: cgit-v0.0.10
+  namespace: linuxsuren-bot
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/LinuxSuRen/linuxsuren-versions
+      branch: master
+      name: linuxsuren-versions
+      provider: github
+    secret: {}
+  phase: draft
+  repositories:
+  - action: release
+    address: https://github.com/LinuxSuRen/cgit
+    branch: master
+    name: cgit
+    provider: github
+  secret:
+    name: linuxsuren-bot
+    namespace: ks-releaser-system
+  version: v0.0.10
+status: {}
