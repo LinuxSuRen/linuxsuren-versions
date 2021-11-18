@@ -8,3 +8,4 @@ The following project is using [ks-releaser](https://github.com/kubesphere-sigs/
 | [cgit](https://github.com/LinuxSuRen/cgit) | [![GitHub release](https://img.shields.io/github/release/linuxsuren/cgit.svg?label=release)](https://github.com/linuxsuren/cgit/releases/latest) |
 | [http-downloader](https://github.com/LinuxSuRen/http-downloader) | [![GitHub release](https://img.shields.io/github/release/linuxsuren/http-downloader.svg?label=release)](https://github.com/linuxsuren/http-downloader/releases/latest) |
 | [goget](https://github.com/LinuxSuRen/goget) | [![GitHub release](https://img.shields.io/github/release/linuxsuren/goget.svg?label=release)](https://github.com/linuxsuren/goget/releases/latest) |
+| [goplay](https://github.com/LinuxSuRen/goplay) | [![GitHub release](https://img.shields.io/github/release/linuxsuren/goplay.svg?label=release)](https://github.com/linuxsuren/goplay/releases/latest) |

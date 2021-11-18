@@ -1,0 +1,25 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  name: goplay-v0.0.1
+  namespace: linuxsuren-bot
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/LinuxSuRen/linuxsuren-versions
+      branch: master
+      name: linuxsuren-versions
+      provider: github
+  phase: ready
+  repositories:
+  - action: release
+    address: https://github.com/LinuxSuRen/goplay
+    branch: master
+    name: goplay
+    provider: github
+    version: v0.0.1
+  secret:
+    name: linuxsuren-bot
+    namespace: ks-releaser-system
+  version: v0.0.1
