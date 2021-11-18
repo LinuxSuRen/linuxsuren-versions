@@ -1,8 +1,17 @@
 apiVersion: devops.kubesphere.io/v1alpha1
 kind: Releaser
 metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"devops.kubesphere.io/v1alpha1","kind":"Releaser","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"linuxsuren"},"name":"goget-v0.0.9","namespace":"linuxsuren-bot"},"spec":{"gitOps":{"enable":true,"repository":{"address":"https://github.com/LinuxSuRen/linuxsuren-versions","branch":"master","name":"linuxsuren-versions","provider":"github"},"secret":{}},"phase":"ready","repositories":[{"action":"release","address":"https://github.com/LinuxSuRen/goget","branch":"master","name":"goget","provider":"github","version":"v0.0.9"}],"secret":{"name":"linuxsuren-bot","namespace":"ks-releaser-system"},"version":"v0.0.9"},"status":{}}
+    releaser.devops.kubesphere.io/hash: 758d78885
+  creationTimestamp: "2021-11-18T02:14:28Z"
+  generation: 2
+  labels:
+    app.kubernetes.io/instance: linuxsuren
   name: goget-v0.0.9
   namespace: linuxsuren-bot
+  selfLink: /apis/devops.kubesphere.io/v1alpha1/namespaces/linuxsuren-bot/releasers/goget-v0.0.9
 spec:
   gitOps:
     enable: true
@@ -12,7 +21,7 @@ spec:
       name: linuxsuren-versions
       provider: github
     secret: {}
-  phase: ready
+  phase: done
   repositories:
   - action: release
     address: https://github.com/LinuxSuRen/goget
@@ -24,4 +33,8 @@ spec:
     name: linuxsuren-bot
     namespace: ks-releaser-system
   version: v0.0.9
-status: {}
+status:
+  conditions:
+  - conditionType: release
+    message: https://github.com/LinuxSuRen/goget was released
+    status: success
