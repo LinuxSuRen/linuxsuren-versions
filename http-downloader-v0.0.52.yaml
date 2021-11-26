@@ -1,11 +1,17 @@
 apiVersion: devops.kubesphere.io/v1alpha1
 kind: Releaser
 metadata:
-  creationTimestamp: "2021-11-16T00:44:48Z"
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"devops.kubesphere.io/v1alpha1","kind":"Releaser","metadata":{"annotations":{},"creationTimestamp":"2021-11-16T00:44:48Z","labels":{"app.kubernetes.io/instance":"linuxsuren"},"name":"http-downloader-v0.0.52","namespace":"linuxsuren-bot"},"spec":{"gitOps":{"enable":true,"repository":{"address":"https://github.com/LinuxSuRen/linuxsuren-versions","branch":"master","name":"linuxsuren-versions","provider":"github"},"secret":{}},"phase":"ready","repositories":[{"action":"release","address":"https://github.com/LinuxSuRen/http-downloader","branch":"master","name":"http-downloader","provider":"github","version":"v0.0.52"}],"secret":{"name":"linuxsuren-bot","namespace":"ks-releaser-system"},"version":"v0.0.52"},"status":{}}
+    releaser.devops.kubesphere.io/hash: 6b8579f89f
+  creationTimestamp: "2021-11-26T14:09:09Z"
+  generation: 2
   labels:
     app.kubernetes.io/instance: linuxsuren
   name: http-downloader-v0.0.52
   namespace: linuxsuren-bot
+  selfLink: /apis/devops.kubesphere.io/v1alpha1/namespaces/linuxsuren-bot/releasers/http-downloader-v0.0.52
 spec:
   gitOps:
     enable: true
@@ -15,7 +21,7 @@ spec:
       name: linuxsuren-versions
       provider: github
     secret: {}
-  phase: ready
+  phase: done
   repositories:
   - action: release
     address: https://github.com/LinuxSuRen/http-downloader
@@ -27,4 +33,8 @@ spec:
     name: linuxsuren-bot
     namespace: ks-releaser-system
   version: v0.0.52
-status: {}
+status:
+  conditions:
+  - conditionType: release
+    message: https://github.com/LinuxSuRen/http-downloader was released
+    status: success
