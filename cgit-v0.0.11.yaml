@@ -1,11 +1,17 @@
 apiVersion: devops.kubesphere.io/v1alpha1
 kind: Releaser
 metadata:
-  creationTimestamp: "2021-11-15T08:09:12Z"
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"devops.kubesphere.io/v1alpha1","kind":"Releaser","metadata":{"annotations":{},"creationTimestamp":"2021-11-15T08:09:12Z","labels":{"app.kubernetes.io/instance":"linuxsuren"},"name":"cgit-v0.0.11","namespace":"linuxsuren-bot"},"spec":{"gitOps":{"enable":true,"repository":{"address":"https://github.com/LinuxSuRen/linuxsuren-versions","branch":"master","name":"linuxsuren-versions","provider":"github"},"secret":{}},"phase":"ready","repositories":[{"action":"release","address":"https://github.com/LinuxSuRen/cgit","branch":"master","name":"cgit","provider":"github","version":"v0.0.11"}],"secret":{"name":"linuxsuren-bot","namespace":"ks-releaser-system"},"version":"v0.0.11"},"status":{}}
+    releaser.devops.kubesphere.io/hash: 77c8d98fb7
+  creationTimestamp: "2021-11-15T08:16:52Z"
+  generation: 2
   labels:
     app.kubernetes.io/instance: linuxsuren
   name: cgit-v0.0.11
   namespace: linuxsuren-bot
+  selfLink: /apis/devops.kubesphere.io/v1alpha1/namespaces/linuxsuren-bot/releasers/cgit-v0.0.11
 spec:
   gitOps:
     enable: true
@@ -15,7 +21,7 @@ spec:
       name: linuxsuren-versions
       provider: github
     secret: {}
-  phase: ready
+  phase: done
   repositories:
   - action: release
     address: https://github.com/LinuxSuRen/cgit
@@ -27,4 +33,8 @@ spec:
     name: linuxsuren-bot
     namespace: ks-releaser-system
   version: v0.0.11
-status: {}
+status:
+  conditions:
+  - conditionType: release
+    message: https://github.com/LinuxSuRen/cgit was released
+    status: success
