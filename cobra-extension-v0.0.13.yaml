@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  creationTimestamp: "2021-12-08T11:28:58Z"
+  labels:
+    app.kubernetes.io/instance: linuxsuren
+  name: cobra-extension-v0.0.13
+  namespace: linuxsuren-bot
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/LinuxSuRen/linuxsuren-versions
+      branch: master
+      name: linuxsuren-versions
+      provider: github
+    secret: {}
+  phase: draft
+  repositories:
+  - action: release
+    address: https://github.com/LinuxSuRen/cobra-extension
+    branch: master
+    name: cobra-extension
+    provider: github
+    version: v0.0.13
+  secret:
+    name: linuxsuren-bot
+    namespace: ks-releaser-system
+  version: v0.0.13
+status: {}
