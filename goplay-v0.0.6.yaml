@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  creationTimestamp: "2021-11-28T15:02:08Z"
+  labels:
+    app.kubernetes.io/instance: linuxsuren
+  name: goplay-v0.0.6
+  namespace: linuxsuren-bot
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/LinuxSuRen/linuxsuren-versions
+      branch: master
+      name: linuxsuren-versions
+      provider: github
+    secret: {}
+  phase: draft
+  repositories:
+  - action: release
+    address: https://github.com/LinuxSuRen/goplay
+    branch: master
+    name: goplay
+    provider: github
+    version: v0.0.6
+  secret:
+    name: linuxsuren-bot
+    namespace: ks-releaser-system
+  version: v0.0.6
+status: {}
