@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  creationTimestamp: "2022-01-18T02:21:07Z"
+  labels:
+    app.kubernetes.io/instance: linuxsuren
+  name: cgit-v0.0.14
+  namespace: linuxsuren-bot
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/LinuxSuRen/linuxsuren-versions
+      branch: master
+      name: linuxsuren-versions
+      provider: github
+    secret: {}
+  phase: draft
+  repositories:
+  - action: release
+    address: https://github.com/LinuxSuRen/cgit
+    branch: master
+    name: cgit
+    provider: github
+    version: v0.0.14
+  secret:
+    name: linuxsuren-bot
+    namespace: ks-releaser-system
+  version: v0.0.14
+status: {}
